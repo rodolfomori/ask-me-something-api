@@ -1,0 +1,17 @@
+[
+  {
+    "AllowedHeaders": [
+      "*"
+    ],
+    "AllowedMethods": [
+      "GET",
+      "HEAD",
+      "PUT",
+      "DELETE"
+    ],
+    "AllowedOrigins": [
+      "*"
+    ],
+    "MaxAgeSeconds": 3000
+  }
+]
