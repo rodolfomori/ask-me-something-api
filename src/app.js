@@ -1,6 +1,5 @@
 import './database';
 
-import './app/services/schedule';
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -15,24 +14,6 @@ class App {
   middlewares() {
     this.server.use(express.json());
 
-    // const whitelist = [
-    //   'http://viladalila.site',
-    //   'https://viladalila.site',
-    //   'http://www.viladalila.site',
-    //   'https://www.viladalila.site',
-    // ];
-
-    // const corsOptions = {
-    //   origin(origin, callback) {
-    //     if (whitelist.indexOf(origin) !== -1) {
-    //       callback(null, true);
-    //     } else {
-    //       callback(new Error('Not allowed by CORS'));
-    //     }
-    //   },
-    // };
-
-    // this.server.use(cors(corsOptions));
     this.server.use(cors());
   }
 

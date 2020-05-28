@@ -7,20 +7,12 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      user: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      text: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       subject: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      likes: {
-        type: Sequelize.INTEGER,
         allowNull: false,
       },
       created_at: {

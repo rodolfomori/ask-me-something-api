@@ -4,9 +4,7 @@ class Answer extends Model {
   static init(sequelize) {
     super.init(
       {
-        user: Sequelize.STRING,
         text: Sequelize.STRING,
-        likes: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -17,7 +15,10 @@ class Answer extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Question, { foreignKey: 'question_id', as: 'question' });
+    this.belongsTo(models.Question, {
+      foreignKey: 'question_id',
+      as: 'question',
+    });
   }
 }
 

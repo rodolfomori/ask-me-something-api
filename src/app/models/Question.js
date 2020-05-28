@@ -4,10 +4,8 @@ class Question extends Model {
   static init(sequelize) {
     super.init(
       {
-        user: DataTypes.STRING,
-        text: DataTypes.STRING,
+        title: DataTypes.STRING,
         subject: DataTypes.STRING,
-        likes: DataTypes.INTEGER,
       },
       {
         sequelize,
