@@ -3,24 +3,21 @@ import Question from '../models/Question';
 
 class QuestionController {
   async store(req, res) {
+    console.log(req.body);
     const schema = Yup.object().shape({
       title: Yup.string().required(),
       subject: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res
-        .status(400)
-        .json({ error: 'Validations fails in new question' });
+      return res.status(400).json({ error: 'Validations fails in new answer' });
     }
 
     try {
-      console.log(req.body);
       const createdQuestion = await Question.create(req.body);
       return res.json(createdQuestion);
     } catch (err) {
-      console.log(err);
-      return res.status(400).json({ error: 'Fail at add new question' });
+      return res.status(400).json({ error: 'Fail at add new answer' });
     }
   }
 
@@ -39,14 +36,6 @@ class QuestionController {
       return res.status(400).json({ error: 'Fail to load all questions' });
     }
   }
-
-  // async show(req, res) {
-  //   const modality = await Modality.findOne({
-  //     where: { id: req.params.id },
-  //   });
-
-  //   return res.json(modality);
-  // }
 }
 
 export default new QuestionController();

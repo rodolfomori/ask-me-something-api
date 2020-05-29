@@ -18,7 +18,8 @@ class AnswerController {
       const createdAnswer = await Answer.create(req.body);
       return res.json(createdAnswer);
     } catch (err) {
-      return res.status(400).json({ error: 'Fail at add new question' });
+      console.log(err);
+      return res.status(400).json({ error: 'Fail at add new answer' });
     }
   }
 

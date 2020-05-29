@@ -1,76 +1,35 @@
-# version: '3'
-
-# services:
-
-#   nodejs-vila-dalila:
-#     container_name: nodejs-vila-dalila
-#     build: '.'
-#     volumes:
-#       - .:/home/node/api
-#       - /home/node/api/node_modules
-#     depends_on:
-#       - postgres-vila-dalila
-#     networks:
-#       - app-connect
-#     ports:
-#       - '3001:3001'
-
-#   postgres-vila-dalila:
-#     container_name: postgres-vila-dalila
-#     image: postgres:11
-#     restart: unless-stopped
-#     volumes:
-#       - postgres-vila-dalila-data:/data
-#     environment: 
-#       POSTGRES_DB: ${DB_NAME}
-#       POSTGRES_USER: ${DB_USER}
-#       POSTGRES_PASSWORD: ${DB_PASS} 
-#     networks:
-#       - app-connect
-
-# volumes:
-#   postgres-vila-dalila-data:
-
-# networks:
-#   app-connect:
-#       driver: bridge
-
-
-
-# ESSE FUNCIONOU
 version: '3'
 
 services:
-  ask-me-something-api:
+  ask-me-api:
     build: .
-    container_name: ask-me-something-api
+    container_name: ask-me-api
     volumes:
       - .:/home/node/api
       - /home/node/api/node_modules
     ports:
       - '3001:3001'
     depends_on:
-      - ask-me-something-postgres
+      - ask-me-postgres
     networks:
-      - ask-me-something-network
+      - ask-me-network
       
-  vila-dalila-postgres:
+  ask-me-postgres:
     image: postgres:11
-    container_name: ask-me-something-postgres
+    container_name: ask-me-postgres
     environment:
-      # - ALLOW_EMPTY_PASSWORD=no
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS} 
     volumes:
-      - ask-me-something-postgres-data:/data
+      - ask-me-postgres-data:/data
     networks:
-      - ask-me-something-network
+      - ask-me-network
 
 volumes:
-  ask-me-something-postgres-data:
+  ask-me-postgres-data:
 
 networks:
-  ask-me-something-network:
+  ask-me-network:
     driver: bridge
 
