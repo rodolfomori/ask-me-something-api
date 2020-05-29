@@ -77,11 +77,28 @@ $ yarn dev or npm run dev
 
 ```
 
-If you want to run the project from a local or remote container, you can run the command:
+
+
+<p>If you want to run the project from a local or remote container, you can run the command:</p>
 
 ```bash
 
 $ docker-compose up --build -d 
+
+```
+
+
+
+
+If you want to run the database (postgres) from a local or remote container, you can run the command:
+
+```bash
+
+$  docker run --name ask-me-postgres -e POSTGRES_PASSWORD=choose a password -p 5432:5432 -d postgres 
+
+Choose your password, and change it in .env file.
+
+Change the DB address with a new one in .env.
 
 ```
 
