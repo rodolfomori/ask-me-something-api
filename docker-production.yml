@@ -4,7 +4,6 @@ services:
   app:
     labels: 
       - "traefik.enable=true"
-      # - "traefik.frontend.rule=Host:viladalila.online"
 
   reverse-proxy:
     image: traefik

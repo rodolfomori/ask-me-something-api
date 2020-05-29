@@ -1,6 +1,7 @@
 import cors from 'cors';
 
 import express, { Router } from 'express';
+
 import QuestionController from './app/controllers/QuestionController';
 import AnswerController from './app/controllers/AnswerController';
 
