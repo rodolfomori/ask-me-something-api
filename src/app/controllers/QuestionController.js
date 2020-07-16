@@ -3,7 +3,6 @@ import Question from '../models/Question';
 
 class QuestionController {
   async store(req, res) {
-    console.log(req.body);
     const schema = Yup.object().shape({
       title: Yup.string().required(),
       subject: Yup.string().required(),

@@ -1,4 +1,3 @@
-npx sequelize-cli db:create ask-me-postgres
-npx sequelize-cli db:migrate
-npx sequelize-cli db:seed:all
+#!/bin/sh
+yarn sequelize db:migrate
 yarn dev

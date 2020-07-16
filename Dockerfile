@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 
-RUN mkdir -p /usr/src/app/node_modules && chown -R node:node /usr/src/app
+RUN mkdir -p /home/node/api/node_modules && chown -R node:node /home
 
-WORKDIR /usr/src/app
+WORKDIR /home/node/api
 
 COPY package.json yarn.* ./
 
@@ -10,8 +10,9 @@ USER node
 
 RUN yarn
 
-COPY --chown=node:node . .
+COPY . . 
 
 EXPOSE 3001
 
-CMD ["yarn", "dev"]
+ENTRYPOINT ["./init.sh"]
+

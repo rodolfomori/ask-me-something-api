@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  nodejs:
+    container_name: nodejs
+    build: '.'
+    volumes:
+      - .:/home/node/api
+      - /home/node/api/node_modules
+    depends_on:
+      - postgres
+    networks:
+      - app-connect
+    ports:
+      - '3001:3001'
+
+  postgres:
+    container_name: postgres
+    image: postgres:11
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/data
+    environment: 
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS} 
+    networks:
+      - app-connect
+
+volumes:
+  postgres-data:
+
+networks:
+  app-connect:
+      driver: bridge
